@@ -5,7 +5,7 @@ import rentalSchema from "../schemas/rentalSchema.js";
 
 const rentalsRouter = Router();
 
-rentalsRouter.post("/rentals", validateRentalMiddleware(rentalSchema), createRental);
+rentalsRouter.post("/rentals", validateRentalMiddleware, createRental);
 rentalsRouter.get("/rentals", readRentals);
 rentalsRouter.put("/rentals/:id/return", updateRental);
 rentalsRouter.delete("/rentals/:id", validateRentalIdMiddleware, deleteRental);

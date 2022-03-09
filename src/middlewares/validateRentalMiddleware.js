@@ -1,7 +1,7 @@
 import db from "../database.js";
 import rentalSchema from "../schemas/rentalSchema.js";
 
-export const validateRentalMiddleware = (req, res, next) => {
+export const validateRentalMiddleware = async (req, res, next) => {
     const validation = rentalSchema.validate(req.body);
     const { customerId, gameId, daysRented } = req.body;
 
@@ -36,7 +36,7 @@ export const validateRentalMiddleware = (req, res, next) => {
     }
 }
 
-export async function validateRentalIdMiddleware(req, res, next) {
+export const validateRentalIdMiddleware = async (req, res, next) => {
     const { id } = req.params;
 
     try {
